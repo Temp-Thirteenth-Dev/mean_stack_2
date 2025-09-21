@@ -1,6 +1,7 @@
-<p>Data is : </p>
-@for(book of data; track book){
-    {{book | json}}<br>
-}
+<p>Select id to extract data</p>
+<input type="text" pattern="[0-5]?[0-9]" #id>
+<button (click)="get_request(id.value)">Extract</button>
+<p>Data is : {{data | json}}</p>
+
 
 <router-outlet />

@@ -2,6 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HTTPService } from './app.config';
 import { JsonPipe } from '@angular/common';
+import { ProductService } from './product-service';
 
 @Component({
   selector: 'app-root',
@@ -11,20 +12,10 @@ import { JsonPipe } from '@angular/common';
 })
 export class App {
   protected readonly title = signal('httpClient');
-  backend=inject(HTTPService);
-  data:any=null;
+  prod_service=inject(ProductService);
+  data:any="Not yet fetched!!";
 
-  ngOnInit(){
-    this.get_request();
-  }
-
-  get_request(){
-    this.backend.http.get('http://localhost:9000/books',{})
-    .subscribe(
-        data => {
-            console.log(data);
-            this.data=data;
-        }
-    )
+  get_request(id:string){
+    this.prod_service.get_products(id).subscribe(data => {this.data=data});
   }
 }
