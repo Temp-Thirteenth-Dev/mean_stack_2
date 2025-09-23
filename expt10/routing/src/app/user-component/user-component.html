@@ -1,3 +1,17 @@
-<p>user-component works!</p>
-<a href="book">Go to book component</a>
-<a href="home">Go to home component</a>
+<form action="">
+    <label for="username">Username : </label>
+    <input type="text" name="username" #username>
+
+    <br>
+
+    <label for="password">Password : </label>
+    <input type="password" name="password" #password>
+
+    <br>
+
+    <button type="submit" (click)="validateUser(username.value,password.value)">Submit</button>
+</form>
+
+@if(authorized){
+    <p>Goto <a href="books">books</a></p>
+}

@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './home-component/home-component';
 import { UserComponent } from './user-component/user-component';
 import { BookComponent } from './book-component/book-component';
+import { authGuard } from './auth-guard';
 
 export const routes: Routes = [
     {
@@ -15,5 +16,6 @@ export const routes: Routes = [
     {
         path:'book',
         component:BookComponent,
+        canActivate:[authGuard],
     },
 ];
