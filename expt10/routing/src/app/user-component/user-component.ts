@@ -13,6 +13,6 @@ export class UserComponent {
     constructor(private authService: AuthService, private router: Router) {}
     validateUser(username:string,password:string){
         this.authorized=this.authService.authenticate(username,password);
-        this.router.navigate(['/book']);
+        this.router.navigate(['/home/book']);
     }
 }
